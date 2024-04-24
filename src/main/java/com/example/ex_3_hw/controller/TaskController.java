@@ -26,11 +26,11 @@ public class TaskController {
     public List<Task> getTasksByStatus(@PathVariable TaskStatus taskStatus){
         return taskService.getTasksByStatus(taskStatus);
     }
-    @PutMapping("/tasks/{id}")
+    @PutMapping("/{id}")
     public Task updateTaskStatus(@PathVariable Long id, @RequestBody Task task) {
         return taskService.updateTaskStatus(id, task);
     }
-    @DeleteMapping("/tasks/{id}")
+    @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id){
         taskService.deleteTask(id);
     }

@@ -1,5 +1,6 @@
 package com.example.ex_3_hw.service;
 
+import com.example.ex_3_hw.aspects.TrackUserAction;
 import com.example.ex_3_hw.model.Task;
 import com.example.ex_3_hw.model.TaskStatus;
 import com.example.ex_3_hw.repository.TaskRepository;
@@ -14,10 +15,12 @@ import java.util.Optional;
 @AllArgsConstructor
 public class TaskService {
     private final TaskRepository taskRepository;
+    @TrackUserAction
     public Task addTask(Task task) {
         task.setDateTimeCreation(LocalDateTime.now());
         return taskRepository.save(task);
     }
+    @TrackUserAction
     public List<Task> getAllTasks(){
         return taskRepository.findAll();
     }
